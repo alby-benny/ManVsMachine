@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Langar&display=swap');
+$green: rgb(10, 228, 10);
+$text-color: #fff;
+
+body{
+    font-family: 'Langar', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    user-select: none;
+    overflow:hidden;
+    background-image: url(../Images/MVM-Background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0px;
+}
+
+.alert-success{
+    display: none;
+    text-align: center;
+}
+
+#p-1{
+    margin-top: 70px;
+    text-align: center;
+    font-size: 30px;
+}
+
+#box{
+    background-color: red;
+    width: 100%;
+    height: 300px;
+    display: none;
+    cursor: pointer;
+}
+
+#green-box{
+    background-color: $green;
+    width: 100%;
+    height: 300px;
+    display: none;
+    cursor: pointer;
+}
+
+#box p{
+    font-size: 30px;
+    color: $text-color;
+    text-align: center;
+    padding-top: 120px;
+}
+
+#green-box p{
+    font-size: 30px;
+    color: $text-color;
+    text-align: center;
+    padding-top:120px ;
+}
+
+#play-again{
+    display: none;
+}
+
+footer{
+    background-color: #151515;
+    color: $text-color;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0px;
+    a{
+        color: $text-color;
+    }
+    &:hover{
+        color: $green;
+    }
+    .fa-heart{
+        color: red;
+    }
+}

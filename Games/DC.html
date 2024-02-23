@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link class="icon" rel="icon" href="../Images/Logo.png" />
+
+        <link rel="stylesheet" href="../css/style.css" />
+
+        <title>Man Vs Machine</title>
+    </head>
+    <body>
+        <section class="main-container">
+            <section class="logo-container">
+                <div class="logo-area"><img src="../Images/Logo.png"/></div>
+                <div class="main-heading" id="mainHeading">Team Machine</div>
+            </section>
+            <section class="dc-container" id="dcContainer">
+                
+            
+            <script>
+                const tbl = document.createElement("table");
+                const tblBody = document.createElement("tbody");
+                for (let i = 0; i < 20; i++) {
+                const row = document.createElement("tr");
+                    for (let j=0; j<7; j++){
+                        const cell = document.createElement("td");
+                        const inputText = document.createElement("INPUT");
+                        inputText.setAttribute("type","text");  
+                        inputText.setAttribute("value","E");
+                        cell.appendChild(inputText);
+                        row.appendChild(cell);
+                    }
+                    tblBody.appendChild(row);
+                }
+                tbl.appendChild(tblBody);
+                document.getElementById("dcContainer").appendChild(tbl);
+                tbl.setAttribute("border", "2");
+                //Number of randoms
+                let nRng=Math.floor((Math.random() * 20) + 1);
+                for (let k=0; k<nRng; k++){
+                    //Rows
+                    let rowRNG=Math.floor((Math.random() * 20) + 1);
+                    //Columns
+                    let colRNG=Math.floor((Math.random()*7) + 1);
+                    for (let i=0; i<20; i++){
+                        for (let j=0; j<7; j++){
+                            if(i===rowRNG && j===colRNG){
+                                //Replacing random cell with value F
+                                tbl.rows[i].cells[j].firstChild.value = 'F';
+                            }
+                        }
+                    }
+                }
+            </script>
+            <button type="button" id="checkButton" onclick="check()"><span>Check</span></button>
+            <script>
+                function check(){
+                    flag=0
+                    for (let i=0;i<20;i++){
+                        for(let j=0;j<7;j++){
+                            if(tbl.rows[i].cells[j].firstChild.value==="F"){
+                                flag=1;
+                                break;
+                            }
+                        }
+                    }
+                    if(flag===0){
+                        document.getElementById("checkButton").innerHTML="<span>Submit</span>";
+                        document.getElementById("checkButton").setAttribute("onclick","submit()");
+                    }
+                    else if(flag===1){
+                        alert("The Data is Still NOT CLEAN!");
+                    }
+                }
+                function submit(){
+                    alert("Next Page is currently under development!");
+                }
+            </script>
+            </section>
+        </section>
+    </body>
+</html>

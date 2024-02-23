@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link class="icon" rel="icon" href="Images/Logo.png" />
+
+        <link rel="stylesheet" href="css/style.css" />
+
+        <title>Man Vs Machine</title>
+    </head>
+    
+    <body>
+        <section class="main-container">
+            <section class="logo-container">
+                <div class="logo-area"><img src="Images/Logo.png"/></div>
+                <div class="main-heading" id="mainHeading">Team Machine</div>
+            </section>
+            <section class="content-container">
+                <div class="instruction-box">
+                    <div class="instruction-heading">General Instructions</div>
+                    <div class="instructions-content">
+                        <ul>
+                            <li>Welcome to the selection round for <span id="teamChange">Team Machines</span>. You will be given a set of challenges to tackle. Only the best of you shall move on to the next challenge.</li>
+                            <li>
+                                The decision of the organizers will be final. What they decide goes. There is no room for argument or appeals.
+                            </li>
+                            <li>We only want the best. We expect the best. Good luck.</li>
+                        </ul>
+                    </div>
+                    <div class="btn-area">
+                        <a class="instruction-btn" style="--clr:#b2814c;--i:0;" onclick="startfn()">
+                            <span>Next</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <script type="application/javascript">
+            function getCookie(cname) {
+              let name = cname + "=";
+              let ca = document.cookie.split(';');
+              for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                  c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                  return c.substring(name.length, c.length);
+                }
+              }
+              return "";
+            }
+            
+            function startfn(){
+                if(getCookie("team")=="man"){
+                    location.href = "reaction-instructions.html";
+                }
+                else{
+                    location.href = "decipher-instructions.html";
+                }
+            }
+            
+            if(getCookie("team")=="man"){
+                document.getElementById("teamChange").innerHTML="Team Humans";
+                document.getElementById("mainHeading").innerHTML="Team Humans";
+                
+            }
+            else{
+                document.getElementById("teamChange").innerHTML="Team Machines";
+                document.getElementById("mainHeading").innerHTML="Team Machines";
+            }
+            
+        </script>
+    </body>
+</html>

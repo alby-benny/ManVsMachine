@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Reaction Time</title>
+  </head>
+  <body>
+      <section class="main-container">
+            <section class="logo-container">
+                <div class="logo-area"><img src="../../Images/Logo.png"/></div>
+                <div class="main-heading" id="mainHeading">Team Human</div>
+            </section>
+      
+            <div class="container">
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Score:</strong><span id="pervious-score-para"></span>
+              </div>
+                
+              <br>
+              <p id="p-1"></p>
+              <button class="btn btn-outline-dark btn-lg btn-block" id="start">Start</button>
+              <br>
+
+              <div id="warning" class="alert alert-warning" role="alert">
+              </div>
+
+              <div id="box">
+                <p id="info-para"></p>
+            </div>
+
+            <div id="green-box">
+              <p id="result-para"></p>
+            </div>
+                <button class="btn btn-outline-dark btn-lg btn-block" id="play-again">Retry</button>
+          </div>
+          
+    </section>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="./js/reaction game.js"></script>
+      
+  </body>
+</html>

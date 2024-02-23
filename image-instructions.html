@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link class="icon" rel="icon" href="Images/Logo.png" />
+
+        <link rel="stylesheet" href="css/style.css" />
+
+        <title>Man Vs Machine</title>
+    </head>
+    
+    <body>
+        <section class="main-container">
+            <section class="logo-container">
+                <div class="logo-area"><img src="Images/Logo.png"/></div>
+                <div class="main-heading" id="mainHeading">Team Machine</div>
+            </section>
+            <section class="content-container">
+                <div class="instruction-box">
+                    <div class="instruction-heading">Image Generation</div>
+                    <div class="instructions-content">
+                        <ul id="list-section1">
+                            <li>You’ve made it to the final challenge. Didn’t expect you to make it this far. For your final challenge we are going to test how good you are at generating prompts.</li>
+                            <li>
+                                Your task is simple. The organizers shall give you a topic. Your job is to generate an image based on that topic with utmost creativity. 
+                            </li>
+                            <li>The organizers shall choose the best image to their liking. Its their choice and opinion so try your best to impress them. Their decision is final. If you argue you will be elimin-.. I mean… Disqualified.</li>
+                            <li>Only 1 of you shall proceed. Good luck.</li>
+                        </ul>
+                        <ul id="list-section2">
+                            <li>You may use any image generation tool of your liking. </li>
+                            <li>
+                                You have only 8 minutes to present a result.  
+                            </li>
+                            <li>If all of you fail to do so, all of you will be eliminated. May the best win.</li>
+                        </ul>
+                    </div>
+                    <div id="image-time">Time Left:<span id="imageCounter">08:00</span></div>
+                    <div class="btn-area" id="imageNextBtn">
+                        <a class="image-btn" style="--clr:#b2814c;--i:0;" onclick="startfn()">
+                            <span>Next</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <script type="application/javascript">
+            var countdownTime = 8 * 60;
+            function updateTimer() {
+    
+                minutes = Math.floor(countdownTime / 60);
+                var seconds = countdownTime % 60;
+
+                // Add leading zero if seconds are less than 10
+                if (seconds < 10) {
+                    seconds = "0" + seconds;
+                }
+                if (minutes < 10) {
+                    minutes = "0" + minutes;
+                }
+                // Update the timer element
+                console.log(minutes+":"+seconds);
+                document.getElementById("imageCounter").innerHTML=minutes+":"+seconds;
+
+
+                // Decrease countdown time by 1 second
+                countdownTime--;
+
+                // Check if the countdown has reached zero
+                if (countdownTime < 0) {
+                    //alert("The Game has been Finished!");
+                    location.href = "seeding-round.html";
+                }
+            }
+            function startfn(){
+                document.getElementById("list-section1").style.display="none";
+                document.getElementById("list-section2").style.display="block";
+                document.getElementById("imageNextBtn").style.display="none";
+                document.getElementById("image-time").style.display="flex";
+                interval = setInterval(updateTimer, 1000);
+            }
+            
+        </script>
+    </body>
+</html>

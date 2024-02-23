@@ -1,0 +1,404 @@
+@font-face {
+    font-family: myFFont;
+    src: url("../fonts/FontsFree-Net-Art-nuvo.ttf");
+}
+@font-face {
+    font-family: mySFont;
+    src: url("../fonts/Carollo-Playscript-Medium.otf");
+}
+@font-face {
+    font-family: myThFont;
+    src: url("../fonts/BAHNSCHRIFT.TTF");
+}
+@font-face {
+    font-family: myFrFont;
+    src: url("../fonts/digital-7.ttf");
+}
+
+body{
+    overflow:hidden;
+    background-image: url(../Images/MVM-Background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0px;
+}
+.main-container{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0,0,0,.6);
+}
+.logo-container{
+    display: flex;
+}
+.logo-area img{
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.main-heading{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 10px;
+    font-family: "myFFont";
+    font-size: 45pt;
+}
+.choice{
+    font-size: 30pt;
+    color: white;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    font-family: "mySFont";
+    margin-top: 9%;
+}
+.choice-btns{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+}
+.team-mvm-btn{
+    position: relative;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    transition: 1s;
+    overflow: hidden;
+    text-decoration: none;
+    height: 50px;
+    cursor: pointer;
+}
+.team-mvm-btn:hover{
+    background: var(--clr);
+    box-shadow: 0 0 5px var(--clr),
+        0 0 5px var(--clr),
+        0 0 5px var(--clr),
+        0 0 5px var(--clr);
+}
+.team-mvm-btn::before{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 700%;
+    background: var(--clr);
+    transition: 1s;
+    animation: animate 2s linear infinite;
+    animation-delay: cal(0.33s * var(--i));
+}
+.team-mvm-btn:hover::before{
+    width: 200%;
+}
+
+
+.team-mvm-btn::after{
+    content: '';
+    position: absolute;
+    inset:4px;
+    background: #0e1538;
+    transition: 0.5s;
+}
+.team-mvm-btn:hover::after{
+    background: var(--clr);
+}
+.team-mvm-btn span{
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-family: "mySFont";
+    font-size: 20pt;
+}
+#machine-btn{
+    margin-left: 80px;
+}
+
+
+/*
+General Instructions
+*/
+
+.instruction-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-43%);
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 20px;
+    height: 525px;
+    width: 1100px;
+}
+.instruction-heading{
+    font-family: "myFFont";
+    font-size: 30pt;
+    margin: 20px;
+    margin-left: 30px;
+}
+.instructions-content{
+    font-family: "myThFont";
+    font-size: 20pt;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+.instructions-content li{
+    margin-bottom: 20px;
+}
+.btn-area{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 50px;
+}
+.instruction-btn{
+    position: relative;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    transition: 1s;
+    overflow: hidden;
+    text-decoration: none;
+    height: 25px;
+    width: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.instruction-btn:hover{
+    background: #ea2a11;
+    box-shadow: 0 0 5px #ea2a11,
+        0 0 5px #ea2a11,
+        0 0 5px #ea2a11,
+        0 0 5px #ea2a11;
+}
+.instruction-btn::before{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 700%;
+    background: #ea2a11;
+    transition: 1s;
+    animation: animate 2s linear infinite;
+    animation-delay: cal(0.33s * var(--i));
+}
+.instruction-btn:hover::before{
+    width: 200%;
+}
+
+
+.instruction-btn::after{
+    content: '';
+    position: absolute;
+    inset:4px;
+    background: #0e1538;
+    transition: 0.5s;
+    border-radius: 15px;
+}
+.instruction-btn:hover::after{
+    background: #ea2a11;
+}
+.instruction-btn span{
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-family: "mySFont";
+    font-size: 20pt;
+}
+
+.dc-container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-48%);
+    display: flex;
+    flex-direction: column;
+}
+.dc-input{
+    font-size: 18pt;
+}
+#checkButton{
+    height: 50px;
+    width: 130px;
+    font-family: "mySFont";
+    font-size: 18pt;
+    border-radius: 20px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 20px;
+    border: none;
+    transition: .5s;
+    cursor: pointer;
+}
+#checkButton:hover{
+    background-color: #ea2a11;
+}
+.decipher-container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: rgba(0,0,0,0.8);
+    width: 65%;
+    height: 400px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cipher-text{
+    font-family: "mySFont";
+    font-size: 25pt;
+    margin: 20px 50px 20px 50px;
+}
+#decipherText{
+    resize: none;
+    max-height: 120px;
+    min-height: 120px;
+    min-width: 90%;
+    max-width: 90%;
+    font-family: "mySFont";
+    font-size: 20pt;
+    padding: 10px;
+}
+#CheckBtn{
+    height: 70px;
+    width: 170px;
+    margin-top: 30px;
+    font-family: "mySFont";
+    font-size: 17pt;
+    border:5px solid white;
+    background: none;
+    color: white;
+    border-radius: 10px;
+}
+#CheckBtn:hover{
+    box-shadow: 0 0 10px white,
+    0 0 10px white,
+    0 0 10px white,
+    0 0 10px white;
+}
+#list-section2{
+    display: none;
+}
+#list-section1{
+    display: block;
+}
+#image-time{
+    display: none;
+    font-family: "myFFont";
+    font-size: 26pt;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%);
+}
+#imageCounter{
+    font-family: "myFrFont";
+    font-weight: 600;
+    font-size: 27pt;
+    margin-left: 5px;
+}
+.image-btn{
+    position: relative;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    transition: 1s;
+    overflow: hidden;
+    text-decoration: none;
+    height: 25px;
+    width: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    
+}
+.image-btn:hover{
+    background: #ea2a11;
+    box-shadow: 0 0 5px #ea2a11,
+        0 0 5px #ea2a11,
+        0 0 5px #ea2a11,
+        0 0 5px #ea2a11;
+}
+.image-btn::before{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 700%;
+    background: #ea2a11;
+    transition: 1s;
+    animation: animate 2s linear infinite;
+    animation-delay: cal(0.33s * var(--i));
+}
+.image-btn:hover::before{
+    width: 200%;
+}
+
+
+.image-btn::after{
+    content: '';
+    position: absolute;
+    inset:4px;
+    background: #0e1538;
+    transition: 0.5s;
+    border-radius: 15px;
+}
+.image-btn:hover::after{
+    background: #ea2a11;
+}
+.image-btn span{
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-family: "mySFont";
+    font-size: 20pt;
+}
+.day1-final{
+    font-family: "myFFont";
+    font-size: 30pt;
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.day1-final div{
+    margin-top: 20px;
+    text-align: center;
+}
+.day1-final-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-43%);
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 20px;
+    height: 325px;
+    width: 1100px;
+}
+@keyframes animate{
+    0%{
+        transform: rotate(0deg);
+    }
+     100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+@media only screen and (max-width: 1290px){
+    body{
+        background: black;
+    }
+    *{
+        display: none;
+    }
+}

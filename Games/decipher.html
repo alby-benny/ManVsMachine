@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link class="icon" rel="icon" href="../Images/Logo.png" />
+
+        <link rel="stylesheet" href="../css/style.css" />
+
+        <title>Man Vs Machine</title>
+    </head>
+    
+    <body>
+        <section class="main-container">
+            <section class="logo-container">
+                <div class="logo-area"><img src="../Images/Logo.png"/></div>
+                <div class="main-heading" id="mainHeading">Team Machine</div>
+            </section>
+            <section class="decipher-container">
+                <div class="cipher-text">Wkh zruog lv fkdqjlqj. DL lv devroxwh. DL lv wkh doo srzhuixo.</div>
+                <textarea id="decipherText" placeholder="Enter your answer here..."></textarea>
+                <button type="button" id="CheckBtn" onclick="check()">Check</button>
+            </section>
+        </section>
+        <script type="application/javascript">
+            function check(){
+                let ans=document.getElementById("decipherText").value;
+                if(ans=="The world is changing. AI is absolute. AI is the all powerful."){
+                    document.getElementById("CheckBtn").innerHTML="Submit";
+                    document.getElementById("CheckBtn").setAttribute("onclick","next()");
+                }
+                else{
+                    alert("INCORRECT ANSWER! TRY AGAIN!");
+                }
+            }
+            function next(){
+                location.href = "../image-instructions.html";
+            }
+        </script>
+    </body>
+</html>

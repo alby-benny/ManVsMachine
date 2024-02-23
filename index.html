@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link class="icon" rel="icon" href="Images/Logo.png" />
+
+        <link rel="stylesheet" href="css/style.css" />
+
+        <title>Man Vs Machine</title>
+    </head>
+    
+    <body>
+        <section class="main-container">
+            <section class="logo-container">
+                <div class="logo-area"><img src="Images/Logo.png"/></div>
+                <div class="main-heading">Man Vs Machine</div>
+            </section>
+            <section class="content-container">
+                <div class="choice">
+                Select Your Team:
+                </div>
+                <div class="choice-btns">
+                    <a class="team-mvm-btn" style="--clr:#ae00ff;--i:0;" onclick="man()">
+                        <span>Team Human</span>
+                    </a>
+                    <a class="team-mvm-btn" id="machine-btn" style="--clr:#72ff00;--i:1;" onclick="machine()">
+                        <span>Team Machine</span>
+                    </a>
+                </div>
+            </section>
+        </section>
+        <script type="application/javascript">
+
+            function setCookie(cname, cvalue) {
+                document.cookie = cname + "=" + cvalue + ";";
+            }
+            function machine(){
+                setCookie("team","machine");
+                location.href = "general-instructions.html";
+            }
+            function man(){
+                setCookie("team","man");
+                location.href = "general-instructions.html";
+            }
+        </script>
+    </body>
+</html>

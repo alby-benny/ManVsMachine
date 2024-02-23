@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link class="icon" rel="icon" href="Images/Logo.png" />
+
+        <link rel="stylesheet" href="css/style.css" />
+
+        <title>Man Vs Machine</title>
+    </head>
+    
+    <body>
+        <section class="main-container">
+            <section class="logo-container">
+                <div class="logo-area"><img src="Images/Logo.png"/></div>
+                <div class="main-heading" id="mainHeading">Team Machine</div>
+            </section>
+            <section class="content-container">
+                <div class="instruction-box">
+                    <div class="instruction-heading">Decipher</div>
+                    <div class="instructions-content">
+                        <ul>
+                            <li>Congrats on making it this far. In order for you to be one of us, you need to show us how good you are at pattern recognition. AI is known for their amazing pattern recognition capabilities, so prove your worth.</li>
+                            <li>
+                                Decipher the following text which is encoded using a Caeser Cipher. You don’t know what it is? Too bad. Use your pattern recognition skills to decode this. 
+                            </li>
+                            <li>Only the first 4 of you shall proceed to the next round. Good luck.</li>
+                        </ul>
+                    </div>
+                    <div class="btn-area">
+                        <a class="instruction-btn" style="--clr:#b2814c;--i:0;" onclick="startfn()">
+                            <span>Start</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <script type="application/javascript">
+            function startfn(){
+                location.href = "Games/decipher.html";
+            }
+        </script>
+    </body>
+</html>
