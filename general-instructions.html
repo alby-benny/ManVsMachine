@@ -22,7 +22,7 @@
                     <div class="instruction-heading">General Instructions</div>
                     <div class="instructions-content">
                         <ul>
-                            <li>Welcome to the selection round for <span id="teamChange">Team Machines</span>. You will be given a set of challenges to tackle. Only the best of you shall move on to the next challenge.</li>
+                            <li>Welcome to the <span id="seeding">selection</span> round for <span id="teamChange">Team Machines</span>. You will be given a set of challenges to tackle. Only the best of you shall move on to the next challenge.</li>
                             <li>
                                 The decision of the organizers will be final. What they decide goes. There is no room for argument or appeals.
                             </li>
@@ -55,11 +55,27 @@
             
             function startfn(){
                 if(getCookie("team")=="man"){
-                    location.href = "reaction-instructions.html";
+                    if(getCookie("day")=="2"){
+                        location.href = "cs-instructions.html";
+                    }
+                    else{
+                        location.href = "reaction-instructions.html";
+                    }
                 }
                 else{
-                    location.href = "decipher-instructions.html";
+                    if(getCookie("day")=="2"){
+                        location.href = "dc-instructions.html";
+                    }
+                    else{
+                        location.href = "decipher-instructions.html";
+                    }
                 }
+            }
+            if(getCookie("day")=="2"){
+                document.getElementById("seeding").innerHTML="final seeding";
+            }
+            else{
+                document.getElementById("seeding").innerHTML="selection";
             }
             
             if(getCookie("team")=="man"){

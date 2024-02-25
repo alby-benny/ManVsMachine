@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link class="icon" rel="icon" href="Images/Logo.png" />
+
+        <link rel="stylesheet" href="../css/style.css" />
+
+        <title>Man Vs Machine</title>
+  </head>
+  <body>
+      <section class="main-container">
+            <section class="logo-container">
+                <div class="logo-area"><img src="../Images/Logo.png"/></div>
+                <div class="main-heading" id="mainHeading">Team Human</div>
+            </section>
+            <section class="tc-container" id="tcContainer">
+                <div id="tcContent">Timer: <span id="t1">0</span></div>
+                <div id="ti">Random Time: <span style="color: red;" id="tcRt"></span></div>
+                <div id="tcResult">Your Time:6.40 Time Difference:12.70</div>
+                <button id="startButton" onclick="StartFn()">Start Timer</button>
+                <div id="result" class="result"></div>
+            </section>
+    </section>
+    <script type="application/javascript">
+        const randomTime = (Math.random() * (20 - 12) + 12).toFixed(2);
+        var duration = 3.80;
+        let timerId;
+        let userTime;
+        document.getElementById("tcRt").innerHTML=randomTime;
+        function StartFn(){
+            document.getElementById("startButton").innerHTML="Stop Timer";
+            document.getElementById("startButton").setAttribute("onclick","stopFn()");
+            const startTime = Date.now();
+            var timerTxt = document.getElementById("t1");
+            timerId = setInterval(function() {
+                var total = (new Date().getTime() - startTime) / 1000;
+                userTime=total.toFixed(2);
+               
+                if (total < duration) {
+                    timerTxt.textContent = total.toFixed(2);
+          
+                } else {
+                    timerTxt.textContent = "";
+                    
+                }
+            }, 1);
+        }
+        function stopFn(){
+            document.getElementById("tcResult").innerHTML="Your Time:"+userTime+" Time Difference:"+Math.abs(randomTime-userTime).toFixed(2);
+            document.getElementById("tcResult").style.display="block";
+            clearInterval(timerId);
+            document.getElementById("startButton").innerHTML="Proceed";
+            document.getElementById("startButton").setAttribute("onclick","next()");
+        }
+        function next(){
+            location.href = "../seeding-round.html";
+        }
+    </script>
+      
+  </body>
+</html>

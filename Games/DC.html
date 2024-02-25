@@ -24,11 +24,12 @@
                 const tblBody = document.createElement("tbody");
                 for (let i = 0; i < 20; i++) {
                 const row = document.createElement("tr");
-                    for (let j=0; j<7; j++){
+                    for (let j=0; j<20; j++){
                         const cell = document.createElement("td");
                         const inputText = document.createElement("INPUT");
                         inputText.setAttribute("type","text");  
                         inputText.setAttribute("value","E");
+                        inputText.setAttribute("class","dc-input");
                         cell.appendChild(inputText);
                         row.appendChild(cell);
                     }
@@ -38,14 +39,14 @@
                 document.getElementById("dcContainer").appendChild(tbl);
                 tbl.setAttribute("border", "2");
                 //Number of randoms
-                let nRng=Math.floor((Math.random() * 20) + 1);
+                let nRng=Math.floor((Math.random() * 25) + 1);
                 for (let k=0; k<nRng; k++){
                     //Rows
                     let rowRNG=Math.floor((Math.random() * 20) + 1);
                     //Columns
-                    let colRNG=Math.floor((Math.random()*7) + 1);
+                    let colRNG=Math.floor((Math.random()*20) + 1);
                     for (let i=0; i<20; i++){
-                        for (let j=0; j<7; j++){
+                        for (let j=0; j<20; j++){
                             if(i===rowRNG && j===colRNG){
                                 //Replacing random cell with value F
                                 tbl.rows[i].cells[j].firstChild.value = 'F';
@@ -53,6 +54,7 @@
                         }
                     }
                 }
+                
             </script>
             <button type="button" id="checkButton" onclick="check()"><span>Check</span></button>
             <script>
@@ -75,7 +77,7 @@
                     }
                 }
                 function submit(){
-                    alert("Next Page is currently under development!");
+                    location.href = "../sm-instructions.html";
                 }
             </script>
             </section>

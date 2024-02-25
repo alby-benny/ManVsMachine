@@ -45,6 +45,8 @@ body{
     font-family: "myFFont";
     font-size: 45pt;
 }
+
+
 .choice{
     font-size: 30pt;
     color: white;
@@ -54,12 +56,78 @@ body{
     font-family: "mySFont";
     margin-top: 9%;
 }
+.mvm-robot{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-60%);
+    display: flex;
+}
+.robot-head{
+    height: 120px;
+    width: 120px;
+    border: 8px solid white;
+    border-radius: 26px;
+}
+.robot-eye{
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    display: flex;
+    transform: translate(-50%);
+    justify-content: space-between;
+    width: 90px;
+}
+.custom-radio-btn {
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  cursor: pointer;
+}
+
+.custom-radio-btn input {
+  display: none;
+}
+.custom-radio-btn .checkmark {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: opacity 0.3s ease;
+  border: 5px solid white;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-image: radial-gradient(
+    circle at center, 
+    gray
+    9px, 
+    rgba(255, 255, 255, 0) 0);
+
+}
+.custom-radio-btn input:checked ~ .checkmark {
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  background-image: radial-gradient(
+    circle at center, 
+    white
+    9px, 
+    rgba(255, 255, 255, 0) 0);
+}
+.robot-mouth{
+    height: 11px;
+    width: 80px;
+    border: 4px solid white;
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%);
+}
 .choice-btns{
     display: flex;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    top: 60%;
+    left: 50.5%;
+    transform: translate(-50%);
     
 }
 .team-mvm-btn{
@@ -220,7 +288,7 @@ General Instructions
     flex-direction: column;
 }
 .dc-input{
-    font-size: 18pt;
+    width: 10px;
 }
 #checkButton{
     height: 50px;
@@ -278,6 +346,7 @@ General Instructions
     color: white;
     border-radius: 10px;
 }
+
 #CheckBtn:hover{
     box-shadow: 0 0 10px white,
     0 0 10px white,
@@ -383,6 +452,334 @@ General Instructions
     border-radius: 20px;
     height: 325px;
     width: 1100px;
+}
+.cs-container{
+    background-color: rgba(255,255,255,0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%,-50%);
+    height: auto;
+    width: 50%;
+    border-radius: 50px;
+}
+#content {
+    width: 200px;
+    border: 1.6px dashed #dc0000;
+    font-size: 19px;
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    user-select: none;
+    font-family: "mySFont";
+}
+#clickarea {
+    width: 500px;
+    height : 300px;
+    border: 2px solid #dc0000;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 30px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+#start {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    border: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "myFFont";
+    text-align: center;
+    border-radius: 10px;
+    background: #252839;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60pt;
+}
+#startText{
+    color: transparent;
+    -webkit-text-stroke:0.2vw #383d52;
+    text-transform: uppercase;
+    position: absolute;
+}
+#startText::before{
+    content: attr(data-text);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: #01fe87;
+    -webkit-text-stroke:0vw #383d52;
+    overflow: hidden;
+    animation: ani 6s linear infinite;
+}
+#start:hover {
+    font-size: 65pt;
+}
+#CH{
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    font-family: "mySFont";
+    color: rgba(98,102,117,.4);
+    text-transform: uppercase;
+    font-size: 60pt;
+    user-select: none;
+}
+#endTextArea{
+    font-family: "mySFont";
+    font-size: 20pt;
+    margin-right: 25px;
+    margin-left: 25px;
+    text-align: center;
+    display: none;
+}
+#proceedbtn{
+    height: 70px;
+    width: 170px;
+    margin-top: 30px;
+    font-family: "mySFont";
+    font-size: 17pt;
+    border:5px solid black;
+    background: none;
+    color: black;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: none;
+}
+#proceedbtn:hover{
+    box-shadow: 0 0 10px black,
+    0 0 10px black,
+    0 0 10px black,
+    0 0 10px black;
+}
+.sm-container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    font-family: "mySFont";
+    height: 50%;
+    width: 50%;
+}
+#smContent{
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+}
+#smTimer{
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13pt;
+}
+#smCounter{
+    font-size: 16pt;
+    margin-left: 10px;
+}
+#smProblem{
+    display: flex;
+    background-color: rgba(0,0,0,1);
+    width: 300px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    font-size: 18pt;
+    position: absolute;
+    top: 13%;
+}
+#smP{
+    font-size: 2opt;
+    margin-left: 10px;
+}
+#smScore{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    display: flex;
+    font-size: 14pt;
+}
+#smS{
+    font-size: 16pt;
+    margin-left: 10px;
+}
+.sm-indicator{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+}
+#smGreen{
+    background-color: #148919;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+#smRed{
+    background-color: #b41717;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%; 
+}
+#smIns{
+    position: absolute;
+    top: 80%;
+}
+#smBtn{
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background:none;
+    color: white;
+    font-size: 100pt;
+    transition: 1s;
+    border: none;
+}
+#smBtn span{
+	color: #fff;
+	position: absolute;
+	transform: translate(-50%, -50%);
+    font-family: "mySFont";
+}
+#smBtn:hover{
+	font-size: 110pt;
+
+}
+#smBtn span:nth-child(1) {
+	color: transparent;
+	-webkit-text-stroke: 2px #03a9f4;
+}
+#smBtn span:nth-child(2) {
+	color: #03a9f4;
+	animation: anim 4s ease-in-out infinite;
+}
+#startTimer{
+    font-size: 50pt;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    display: none;
+}
+#startTimer span{
+	color: #fff;
+	position: absolute;
+	transform: translate(-50%, -50%);
+    font-family: "mySFont";
+}
+#startTimer span:nth-child(1) {
+	color: transparent;
+	-webkit-text-stroke: 2px #03a9f4;
+}
+#startTimer span:nth-child(2) {
+	color: #03a9f4;
+	animation: anim 4s ease-in-out infinite;
+}
+#smFinal{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+#smResult{
+    font-size: 35pt;
+}
+.tc-container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+    height: 50%;
+    background-color: rgba(255,255,255,0.7);
+    font-family: "mySFont";
+    font-size: 30pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#tcContent{
+    width: 100%;
+    margin-left: 650px;
+    margin-top: 40px;
+}
+#tcResult{
+    color: red;
+    margin-top: 30px;
+    display: none;
+}
+#startButton{
+    height: 70px;
+    width: 170px;
+    margin-top: 30px;
+    font-family: "mySFont";
+    font-size: 17pt;
+    border:5px solid black;
+    background: none;
+    color: black;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+#startButton:hover{
+    box-shadow: 0 0 10px black,
+    0 0 10px black,
+    0 0 10px black,
+    0 0 10px black;
+}
+@keyframes anim {
+	0%,100% {
+		clip-path: polygon(
+			0% 45%,
+			16% 44%,
+			33% 50%,
+			54% 60%,
+			70% 61%,
+			84% 59%,
+			100% 52%,
+			100% 100%,
+			0% 100%
+		);
+	}
+
+	50% {
+		clip-path: polygon(
+			0% 60%,
+			15% 65%,
+			34% 66%,
+			51% 62%,
+			67% 50%,
+			84% 45%,
+			100% 46%,
+			100% 100%,
+			0% 100%
+		);
+	}
+}
+@keyframes ani{
+    0%,10%,100%{
+        width: 0;
+    }
+    70%,90%{
+        width: 100%;
+    }
 }
 @keyframes animate{
     0%{
