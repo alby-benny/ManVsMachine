@@ -846,6 +846,40 @@ General Instructions
 .wmresult{
     margin-bottom: 20px;
 }
+#nxtRound{
+    display: none;
+}
+#input-field{
+    position: relative;
+    top: 10%;
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-bottom: 3px solid black;
+    font-family: "mySFont";
+    font-size: 23px;
+    padding-left: 8px;
+    text-align: center;
+}
+#sequence-display{
+    display: flex;
+    flex-direction: column;
+    font-size: 25pt;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.nm-sd{
+    text-align: center;
+    font-size: 45pt;
+}
+#score{
+    text-align: center;
+}
+#result-display{
+    text-align: center;
+    margin-bottom: -15px;
+}
 @keyframes anim {
 	0%,100% {
 		clip-path: polygon(

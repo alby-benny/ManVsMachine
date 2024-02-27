@@ -19,15 +19,17 @@
             <section class="tc-container" id="tcContainer">
                 <button id="wmBtn" type="button" onclick="startWord()"><span class="water-text">Start</span><span class="water-text-child">Start</span></button>
                 <div id="wmGame">
-                    <label for="input-field">Enter the sequence:</label><br>
-                    <input type="text" id="input-field"><br>
-                    <button id="submit-btn" onclick="getUserInput()">Submit</button>
+                    <input type="text" id="input-field" placeholder="Enter the Sequence here"><br>
+                    <button id="startButton" onclick="getUserInput()">Submit</button>
+                    <p id="score">Score: <span id="score-value">0</span></p>
+                </div>
+                <div id="nxtRound">
                     <p id="sequence-display"></p>
                       <p id="result-display"></p>
-                      <p id="score" style="display: none;">Score: <span id="score-value">0</span></p>
+                      <p id="score" >Score: <span id="score-value2">0</span></p>
                 </div>
                 <div id="wmGameResult">
-                    <div class="wmresult">Wrong Answer</div>
+                    <div class="wmresult">Incorrect! Game over. Your final score is:</div>
                     <div id="wmScore"></div>
                     <button id="wmProceed" onclick="proceed()">Proceed</button>
                 </div>
@@ -68,17 +70,22 @@
         
         function displaySequence() {
             const sequenceDisplay = numbers.join('');
-            document.getElementById('sequence-display').textContent = "Remember this sequence: " + sequenceDisplay;
+            document.getElementById('input-field').value = '';
+            document.getElementById('sequence-display').innerHTML = "Remember this sequence: <span class='nm-sd'>" + sequenceDisplay+"</span>";
+            document.getElementById('nxtRound').style.display="block";
+            document.getElementById("wmGame").style.display="none";
             let delayTime;
             delayTime= (round+1)*1000;
             setTimeout(() => {
-                document.getElementById('sequence-display').textContent = '';
-                document.getElementById('input-field').value = '';
+                document.getElementById('sequence-display').innerHTML = '';
+                document.getElementById("wmGame").style.display="flex";
+                document.getElementById('nxtRound').style.display="none";
                 document.getElementById('input-field').focus();
             }, delayTime);
         }
         function updateScore() {
-          document.getElementById('score-value').textContent = score;
+          document.getElementById('score-value').innerHTML = score;
+          document.getElementById('score-value2').innerHTML = score;
         }
         function checkUserSequence() {
             let isCorrect = true;
@@ -94,10 +101,9 @@
                 updateScore();
                 nextRound();
             } else {
-                document.getElementById('result-display').textContent = "Incorrect! Game over. Your final score is: " + score;
-                document.getElementById('start-btn').style.display = 'none';
-                document.getElementById('user-input').style.display = 'none';
-                document.getElementById('score').style.display = 'none';
+                document.getElementById('wmScore').innerHTML =  score;
+                document.getElementById("wmGame").style.display="none";
+                document.getElementById('wmGameResult').style.display = 'flex';
             }
         }
         function isValidInput(input) {
@@ -106,49 +112,16 @@
         }
         
         function getUserInput() {
-            const submitBtn = document.getElementById('submit-btn');
-            submitBtn.addEventListener('click', () => {
             const userInput = document.getElementById('input-field').value.trim();
-            if (this.isValidInput(userInput)) {
-              this.userSequence = userInput.split("").map(Number); 
-              this.checkUserSequence();
+            if (isValidInput(userInput)) {
+              userSequence = userInput.split("").map(Number); 
+              checkUserSequence();
             } else {
               alert('Invalid input! Please enter only numbers.');
             }
-            });
         }
 
-            function displayRandomWord(){
-                let rngIndex= Math.floor(Math.random()*30);
-                document.getElementById("wmWord").innerHTML=wordList[rngIndex];
-            }
             
-            function checkNew(){
-                    let currWord=document.getElementById("wmWord").innerHTML;
-                    if(seenList.includes(currWord)===false){
-                        seenList.push(currWord);
-                        score+=1;
-                        displayRandomWord();
-                    }
-                    else{
-                        document.getElementById("wmGame").style.display="none";
-                        document.getElementById("wmGameResult").style.display="flex";
-                        document.getElementById("wmScore").innerHTML="Your Score is: "+ score;
-                    }
-            }
-            
-            function checkSeen(){
-                    let currWord=document.getElementById("wmWord").innerHTML;
-                    if(seenList.includes(currWord)===true){
-                        score+=1;
-                        displayRandomWord();
-                    }
-                    else{
-                        document.getElementById("wmGame").style.display="none";
-                        document.getElementById("wmGameResult").style.display="flex";
-                        document.getElementById("wmScore").innerHTML="Your Score is: "+ score;
-                    }
-            }
         function proceed(){
             location.href = "../tc-instructions.html";
         }
