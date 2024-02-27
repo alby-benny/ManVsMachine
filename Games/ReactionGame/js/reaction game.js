@@ -75,7 +75,7 @@ $(document).ready(function() {
                 retry.innerHTML="Next";
                 p1.innerHTML="Your final score!<br><span class='rtg-score'>Score1:"+a+"</span><span class='rtg-score'>Score2:"+b+"</span><span class='rtg-score'>Score3:"+c;
                 $("#play-again").click(function() {         
-                    location.href = "../../index.html";
+                    location.href = "../../wm-instructions.html";
                 });
             }
             else{

@@ -744,6 +744,108 @@ General Instructions
     0 0 10px black,
     0 0 10px black;
 }
+#wmGame{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+#wmGameResult{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+#wmBtn{
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background:none;
+    color: white;
+    font-size: 100pt;
+    transition: 1s;
+    border: none;
+}
+#wmBtn span{
+	color: #fff;
+	position: absolute;
+	transform: translate(-50%, -50%);
+    font-family: "mySFont";
+}
+#wmBtn:hover{
+	font-size: 110pt;
+
+}
+#wmBtn span:nth-child(1) {
+	color: transparent;
+	-webkit-text-stroke: 2px #03a9f4;
+}
+#wmBtn span:nth-child(2) {
+	color: #03a9f4;
+	animation: anim 4s ease-in-out infinite;
+}
+#wmWord{
+    margin-bottom: 10px;
+}
+#wmNew{
+    height: 70px;
+    width: 170px;
+    margin-top: 30px;
+    font-family: "mySFont";
+    font-size: 17pt;
+    border:5px solid black;
+    background: none;
+    color: black;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+#wmNew:hover{
+    box-shadow: 0 0 10px black,
+    0 0 10px black,
+    0 0 10px black,
+    0 0 10px black;
+}
+#wmSeen{
+    height: 70px;
+    width: 170px;
+    margin-top: 30px;
+    font-family: "mySFont";
+    font-size: 17pt;
+    border:5px solid black;
+    background: none;
+    color: black;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+#wmSeen:hover{
+    box-shadow: 0 0 10px black,
+    0 0 10px black,
+    0 0 10px black,
+    0 0 10px black;
+}
+#wmProceed{
+    height: 70px;
+    width: 170px;
+    margin-top: 30px;
+    font-family: "mySFont";
+    font-size: 17pt;
+    border:5px solid black;
+    background: none;
+    color: black;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+#wmProceed:hover{
+    box-shadow: 0 0 10px black,
+    0 0 10px black,
+    0 0 10px black,
+    0 0 10px black;
+}
+.wmresult{
+    margin-bottom: 20px;
+}
 @keyframes anim {
 	0%,100% {
 		clip-path: polygon(

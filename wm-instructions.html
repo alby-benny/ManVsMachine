@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link class="icon" rel="icon" href="Images/Logo.png" />
+
+        <link rel="stylesheet" href="css/style.css" />
+
+        <title>Man Vs Machine</title>
+    </head>
+    
+    <body>
+        <section class="main-container">
+            <section class="logo-container">
+                <div class="logo-area"><img src="Images/Logo.png"/></div>
+                <div class="main-heading" id="mainHeading">Team Human</div>
+            </section>
+            <section class="content-container">
+                <div class="instruction-box">
+                    <div class="instruction-heading">Word Memory </div>
+                    <div class="instructions-content">
+                        <ul>
+                            <li>Congrats on making it this far. In order for you to be one of us, you need to show us how good your memory is. This shall be a challenge to test the condition of your Mind.</li>
+                            <li>
+                                You shall be presented with a word. Your objective is to either click “Seen” if you have seen it before or click “New” if you have not seen it before. Reach as high of a score as possible without making mistakes. Only the first 4 of you shall proceed to the next round. Good luck.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="btn-area">
+                        <a class="instruction-btn" style="--clr:#b2814c;--i:0;" onclick="startfn()">
+                            <span>Start</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <script type="application/javascript">
+            function startfn(){
+                location.href = "Games/word-memory.html";
+            }
+        </script>
+    </body>
+</html>

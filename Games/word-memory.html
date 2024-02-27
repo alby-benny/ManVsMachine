@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link class="icon" rel="icon" href="Images/Logo.png" />
+
+        <link rel="stylesheet" href="../css/style.css" />
+
+        <title>Man Vs Machine</title>
+  </head>
+  <body>
+      <section class="main-container">
+            <section class="logo-container">
+                <div class="logo-area"><img src="../Images/Logo.png"/></div>
+                <div class="main-heading" id="mainHeading">Team Human</div>
+            </section>
+            <section class="tc-container" id="tcContainer">
+                <button id="wmBtn" type="button" onclick="startWord()"><span class="water-text">Start</span><span class="water-text-child">Start</span></button>
+                <div id="wmGame">
+                    <div id="wmWord">ART</div>
+                    <div class="wm-game-btn">
+                        <button id="wmNew" type="button" onclick="checkNew()">New</button>
+                        <button id="wmSeen" type="button" onclick="checkSeen()" >Seen</button>
+                    </div>
+                </div>
+                <div id="wmGameResult">
+                    <div class="wmresult">Wrong Answer</div>
+                    <div id="wmScore"></div>
+                    <button id="wmProceed" onclick="proceed()">Proceed</button>
+                </div>
+            </section>
+    </section>
+    <script>
+            const wordList=["Cagamosis","Accubation","Cacoethes", "Steatopygic","Causeuse","Jumentous","Mallearoking","Knismesis","Dephlogisticate","Petrichor","Dactylion","Quomodocunquize","Ulotrichous","Yclept","Basorexia","Nelipot","Defenestrate","Opulent","Accubation","Obnoxious","Circumference","Abacinate","Maledicent","Maledicent","Gongoozler","Digamy","Gowpen","Chirotonser","Emunction","Auspicious"];
+            const seenList=[];
+            var score=0;
+            
+            function startWord(){
+                document.getElementById("wmBtn").style.display="none";
+                document.getElementById("wmGame").style.display="flex";
+                let rngIndex=Math.floor(Math.random()*30);
+                document.getElementById("wmWord").innerHTML=wordList[rngIndex];
+            }
+            
+            function displayRandomWord(){
+                let rngIndex= Math.floor(Math.random()*30);
+                document.getElementById("wmWord").innerHTML=wordList[rngIndex];
+            }
+            
+            function checkNew(){
+                    let currWord=document.getElementById("wmWord").innerHTML;
+                    if(seenList.includes(currWord)===false){
+                        seenList.push(currWord);
+                        score+=1;
+                        displayRandomWord();
+                    }
+                    else{
+                        document.getElementById("wmGame").style.display="none";
+                        document.getElementById("wmGameResult").style.display="flex";
+                        document.getElementById("wmScore").innerHTML="Your Score is: "+ score;
+                    }
+            }
+            
+            function checkSeen(){
+                    let currWord=document.getElementById("wmWord").innerHTML;
+                    if(seenList.includes(currWord)===true){
+                        score+=1;
+                        displayRandomWord();
+                    }
+                    else{
+                        document.getElementById("wmGame").style.display="none";
+                        document.getElementById("wmGameResult").style.display="flex";
+                        document.getElementById("wmScore").innerHTML="Your Score is: "+ score;
+                    }
+            }
+        function proceed(){
+            location.href = "../tc-instructions.html";
+        }
+        </script>
+      
+  </body>
+</html>
