@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link class="icon" rel="icon" href="Images/Logo.png" />
+
+        <link rel="stylesheet" href="../css/style.css" />
+
+        <title>Man Vs Machine</title>
+  </head>
+  <body>
+      <section class="main-container">
+            <section class="logo-container">
+                <div class="logo-area"><img src="../Images/Logo.png"/></div>
+                <div class="main-heading" id="mainHeading">Team Human</div>
+            </section>
+            <section class="tc-container" id="tcContainer">
+                <button id="wmBtn" type="button" onclick="startWord()"><span class="water-text">Start</span><span class="water-text-child">Start</span></button>
+                <div id="wmGame">
+                    <label for="input-field">Enter the sequence:</label><br>
+                    <input type="text" id="input-field"><br>
+                    <button id="submit-btn" onclick="getUserInput()">Submit</button>
+                    <p id="sequence-display"></p>
+                      <p id="result-display"></p>
+                      <p id="score" style="display: none;">Score: <span id="score-value">0</span></p>
+                </div>
+                <div id="wmGameResult">
+                    <div class="wmresult">Wrong Answer</div>
+                    <div id="wmScore"></div>
+                    <button id="wmProceed" onclick="proceed()">Proceed</button>
+                </div>
+            </section>
+    </section>
+    <script>
+        
+        let round,score,numbers=[], userSequence = [],maxRounds= 35;
+        function startWord(){
+            document.getElementById("wmBtn").style.display="none";
+            document.getElementById("wmGame").style.display="flex";
+            round = 0;
+            score = 0;
+            numbers = [];
+            userSequence = [];
+            updateScore();
+            nextRound();
+        }
+        function nextRound() {
+            round++;
+            if (round > maxRounds) {
+                //document.getElementById('result-display').textContent = "Congratulations! You completed all rounds. Your final score is: " + score;
+                //document.getElementById('start-btn').style.display = 'inline-block';
+                //document.getElementById('user-input').style.display = 'none';
+                //document.getElementById('score').style.display = 'none';
+            } else {
+                numbers = [];
+                for (let i = 0; i < round; i++) {
+                  numbers.push(generateRandomNumber());
+                }
+                displaySequence();
+            }
+        }
+        
+        function generateRandomNumber() {
+            return Math.floor(Math.random() * 9) + 1;
+        }
+        
+        function displaySequence() {
+            const sequenceDisplay = numbers.join('');
+            document.getElementById('sequence-display').textContent = "Remember this sequence: " + sequenceDisplay;
+            let delayTime;
+            delayTime= (round+1)*1000;
+            setTimeout(() => {
+                document.getElementById('sequence-display').textContent = '';
+                document.getElementById('input-field').value = '';
+                document.getElementById('input-field').focus();
+            }, delayTime);
+        }
+        function updateScore() {
+          document.getElementById('score-value').textContent = score;
+        }
+        function checkUserSequence() {
+            let isCorrect = true;
+            for (let i = 0; i < numbers.length; i++) {
+                if (numbers[i] !== userSequence[i]) {
+                  isCorrect = false;
+                  break;
+                }
+            }
+            if (isCorrect) {
+                document.getElementById('result-display').textContent = "Correct!";
+                score++;
+                updateScore();
+                nextRound();
+            } else {
+                document.getElementById('result-display').textContent = "Incorrect! Game over. Your final score is: " + score;
+                document.getElementById('start-btn').style.display = 'none';
+                document.getElementById('user-input').style.display = 'none';
+                document.getElementById('score').style.display = 'none';
+            }
+        }
+        function isValidInput(input) {
+            const pattern = /^\d+$/; 
+            return pattern.test(input);
+        }
+        
+        function getUserInput() {
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.addEventListener('click', () => {
+            const userInput = document.getElementById('input-field').value.trim();
+            if (this.isValidInput(userInput)) {
+              this.userSequence = userInput.split("").map(Number); 
+              this.checkUserSequence();
+            } else {
+              alert('Invalid input! Please enter only numbers.');
+            }
+            });
+        }
+
+            function displayRandomWord(){
+                let rngIndex= Math.floor(Math.random()*30);
+                document.getElementById("wmWord").innerHTML=wordList[rngIndex];
+            }
+            
+            function checkNew(){
+                    let currWord=document.getElementById("wmWord").innerHTML;
+                    if(seenList.includes(currWord)===false){
+                        seenList.push(currWord);
+                        score+=1;
+                        displayRandomWord();
+                    }
+                    else{
+                        document.getElementById("wmGame").style.display="none";
+                        document.getElementById("wmGameResult").style.display="flex";
+                        document.getElementById("wmScore").innerHTML="Your Score is: "+ score;
+                    }
+            }
+            
+            function checkSeen(){
+                    let currWord=document.getElementById("wmWord").innerHTML;
+                    if(seenList.includes(currWord)===true){
+                        score+=1;
+                        displayRandomWord();
+                    }
+                    else{
+                        document.getElementById("wmGame").style.display="none";
+                        document.getElementById("wmGameResult").style.display="flex";
+                        document.getElementById("wmScore").innerHTML="Your Score is: "+ score;
+                    }
+            }
+        function proceed(){
+            location.href = "../tc-instructions.html";
+        }
+        </script>
+      
+  </body>
+</html>
