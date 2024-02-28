@@ -793,7 +793,7 @@ function update() {
   // Win
   // TODO
   if (gametype !== 3) {
-    if (lines >=1 ){//lineLimit
+    if (lines >=lineLimit ){//1
       gameState = 1;
       msg.innerHTML = '<button type="button" onclick=nextPage() style="background:none;color:White;border:none;font-size:40pt;">GREAT!</button>';
     }
