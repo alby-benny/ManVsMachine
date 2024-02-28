@@ -19,19 +19,36 @@
             </section>
             <section class="day1-final-container">
                 <div class="day1-final-box">
-                    <div class="day1-final"><div>Congratulations if you got selected. Too bad if you didn’t.</div>
+                    <div class="day1-final" style="position: absolute; left: 50%;top: 45%;transform: translate(-50%,-50%); width: 100%;"><div  id="mvmLast">Congratulations if you got selected. Too bad if you didn’t.</div>
                     <div>We expect the best from you moving forward.</div>
                     <div>See you tomorrow!</div></div>
                 </div>
             </section>
         </section>
-        <script type="application/javascript">
+        <script>
+            function getCookie(cname) {
+              let name = cname + "=";
+              let ca = document.cookie.split(';');
+              for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                  c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                  return c.substring(name.length, c.length);
+                }
+              }
+              return "";
+            }
+            //alert(getCookie("team"));
             if(getCookie("team")=="man"){
                 document.getElementById("mainHeading").innerHTML="Team Humans";
+                document.getElementById("mvmLast").innerHTML="Congratulations on getting selected.";
                 
             }
             else{
                 document.getElementById("mainHeading").innerHTML="Team Machines";
+                document.getElementById("mvmLast").innerHTML="Congratulations if you got selected. Too bad if you didn’t.";
             }
         </script>
     </body>
