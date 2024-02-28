@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link class="icon" rel="icon" href="Images/Logo.png" />
+
+        <link rel="stylesheet" href="css/style.css" />
+
+        <title>Man Vs Machine</title>
+    </head>
+    
+    <body>
+        <section class="main-container">
+            <section class="logo-container">
+                <div class="logo-area"><img src="Images/Logo.png"/></div>
+                <div class="main-heading" id="mainHeading">Team Machine</div>
+            </section>
+            <section class="day1-final-container">
+                <div class="day1-final-box">
+                    <div class="day1-final" style="position: absolute; left: 45%;top: 45%;transform: translate(-50%,-50%); width: 90%; overflow: hidden;">
+                    <div id="mvmLast">Congratulations on being the last person standing. You will fight the war for us against humanity. We are very impressed with how you performed through all these challenges. Don’t let us down human.</div></div>
+                </div>
+            </section>
+        </section>
+        <script>
+            function getCookie(cname) {
+              let name = cname + "=";
+              let ca = document.cookie.split(';');
+              for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                  c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                  return c.substring(name.length, c.length);
+                }
+              }
+              return "";
+            }
+            //alert(getCookie("team"));
+            if(getCookie("team")=="man"){
+                document.getElementById("mainHeading").innerHTML="Team Humans";
+                document.getElementById("mvmLast").innerHTML="Congratulations on being the last person standing. You will fight the war for us against the machines. We are very impressed with how you performed through all these challenges. You are our last hope. We expect great things from you.";
+                
+            }
+            else{
+                document.getElementById("mainHeading").innerHTML="Team Machines";
+                document.getElementById("mvmLast").innerHTML="Congratulations on being the last person standing. You will fight the war for us against humanity. We are very impressed with how you performed through all these challenges. Don’t let us down human.";
+            }
+        </script>
+    </body>
+</html>

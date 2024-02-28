@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link class="icon" rel="icon" href="../Images/Logo.png" />
+
+        <link rel="stylesheet" href="../css/style.css" />
+
+        <title>Man Vs Machine</title>
+    </head>
+    
+    <body>
+        <section class="main-container">
+            <section class="logo-container">
+                <div class="logo-area"><img src="../Images/Logo.png"/></div>
+                <div class="main-heading" id="mainHeading">Team Human</div>
+            </section>
+            <section class="waldo-section" id="waldoS">
+            <map name="clickingMap">
+                <area shape="poly" coords="312,360,306,374,305,384,300,390,307,391,311,396,314,401,313,411,319,411,325,408,325,399,333,404,338,399,328,381,319,360" onclick="endText()">
+            </map>
+            <img usemap="#clickingMap" src="../Images/Puzzle.jpg">
+            Timer: <p id="timer"></p>
+            </section>
+            <section class="waldo-container" id="waldoC">
+                <div id="WaldoFinal">
+                    Timer: <p id="result"></p>
+                    <p id="textPara"></p>
+                    <button type="button" id="CheckBtn" onclick="check()">Proceed</button>
+                </div>
+            </section>
+            <script>
+                var flag=false;
+                const startTime = Date.now();
+                var timerTxt = document.getElementById("timer");
+                var timerId = setInterval(function() {
+                var total = (new Date().getTime() - startTime) / 1000;
+                if (flag===false) {
+                    timerTxt.textContent = total.toFixed(2);
+
+                } else {
+                    timerTxt.textContent = "";
+
+                }
+                }, 1);
+
+                function endText(){
+                    const stopTime = Date.now();
+                    const userTime = ((stopTime - startTime) / 1000).toFixed(2);
+                    document.getElementById("waldoS").style.display= "none";
+                    document.getElementById("waldoC").style.display= "block";
+                    document.getElementById("result").innerHTML= userTime;
+                    document.getElementById("textPara").innerHTML="You found Waldo!";
+                    
+                    flag=true;
+                }
+                function check(){
+                    location.href = "../round2-result.html";
+                }
+                </script>
+                
+        </section>
+    </body>
+</html>

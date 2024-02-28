@@ -880,6 +880,34 @@ General Instructions
     text-align: center;
     margin-bottom: -15px;
 }
+.waldo-section{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 14pt;
+}
+.waldo-container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    font-family: "mySFont";
+    height: 50%;
+    width: 50%;
+    display: none;
+}
+#WaldoFinal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18pt;
+}
 @keyframes anim {
 	0%,100% {
 		clip-path: polygon(
