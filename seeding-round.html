@@ -25,6 +25,14 @@
                 </div>
             </section>
         </section>
-
+        <script type="application/javascript">
+            if(getCookie("team")=="man"){
+                document.getElementById("mainHeading").innerHTML="Team Humans";
+                
+            }
+            else{
+                document.getElementById("mainHeading").innerHTML="Team Machines";
+            }
+        </script>
     </body>
 </html>
