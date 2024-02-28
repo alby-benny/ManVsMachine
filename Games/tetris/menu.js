@@ -253,3 +253,6 @@ for (var s in settings) {
   div.appendChild(iRight);
 }
 resize();
+function nextPage(){
+    location.href="../../decipher-instructions.html";
+}

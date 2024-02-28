@@ -45,7 +45,7 @@ Piece.prototype.new = function(index) {
   // Check for blockout.
   if (!this.moveValid(0, 0, this.tetro)) {
     gameState = 9;
-    msg.innerHTML = 'BLOCK OUT!';
+    msg.innerHTML = '<button type="button" onclick=nextPage() style="z-index:99;background:none;color:White;border:none;font-size:40pt;">BLOCK OUT!</button>'; 
     menu(3);
   }
 };
